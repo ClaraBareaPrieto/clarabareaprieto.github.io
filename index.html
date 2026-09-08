@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clara Barea — Periodista</title>
+
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Clara Barea — Periodista">
+  <meta property="og:description" content="Portfolio periodístico. Reportajes, análisis, podcast y cobertura de actualidad.">
+  <meta property="og:image" content="fotoPlantilla.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Clara Barea — Periodista">
+  <meta name="twitter:description" content="Portfolio periodístico. Reportajes, análisis, podcast y cobertura de actualidad.">
+  <meta name="twitter:image" content="fotoPlantilla.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:      #F5F0E8;
+      --paper-dark: #EDE6D6;
+      --ink:        #1C3557;
+      --ink-soft:   #2A4A70;
+      --ink-muted:  #6B85A3;
+      --rule:       #1C3557;
+      --red:        #1C6B9E;
+      --red-lt:     #2C85C0;
+      --shadow:     rgba(28,53,87,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── TEXTURA PAPEL ───────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      pointer-events: none;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      opacity: 1;
+    }
+
+    /* ── NAVBAR / MASTHEAD ──────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--ink);
+      border-bottom: 3px double var(--paper-dark);
+    }
+
+    .nav-top-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.45rem 5%;
+      border-bottom: 1px solid rgba(245,240,232,0.15);
+    }
+    .nav-top-bar span {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.5);
+      letter-spacing: 0.08em;
+      font-style: italic;
+    }
+    .nav-top-bar .nav-cta {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      text-decoration: none;
+      padding: .3rem .9rem;
+      border: 1px solid rgba(245,240,232,0.35);
+      color: var(--paper);
+      letter-spacing: 0.06em;
+      transition: background .2s, color .2s;
+    }
+    .nav-top-bar .nav-cta:hover {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .nav-main {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.6rem 5%;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 28px; width: auto; display: block;
+    }
+    .nav-logo span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--paper);
+      letter-spacing: 0.02em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.8rem;
+      text-decoration: none;
+      color: rgba(245,240,232,0.65);
+      letter-spacing: 0.07em;
+      font-style: italic;
+      transition: color .2s;
+    }
+    nav ul a:hover { color: var(--paper); }
+
+    /* ── HERO / PORTADA ───────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 5% 5rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .hero-lines {
+      position: absolute; inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0 3rem;
+      align-items: start;
+      max-width: 1100px;
+    }
+
+    .hero-divider-v {
+      background: rgba(245,240,232,0.25);
+      align-self: stretch;
+    }
+
+    .hero-left {
+      padding-right: 1rem;
+    }
+
+    .hero-kicker {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--red-lt);
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .hero-kicker::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: var(--red-lt);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
+      font-weight: 900;
+      line-height: 1.03;
+      letter-spacing: -0.01em;
+      color: var(--paper);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: rgba(245,240,232,0.7);
+      font-weight: 400;
+    }
+
+    .hero-rule {
+      width: 100%; height: 1px;
+      background: rgba(245,240,232,0.2);
+      margin: 1.4rem 0;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(245,240,232,0.6);
+      line-height: 1.85;
+      max-width: 440px;
+      font-style: italic;
+    }
+    .hero-desc strong { color: var(--paper); font-style: normal; font-weight: 400; }
+
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .btn-primary {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.82rem;
+      text-decoration: none;
+      padding: .7rem 1.6rem;
+      background: var(--paper);
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--paper-dark); }
+
+    .btn-secondary {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.82rem;
+      text-decoration: none;
+      padding: .7rem 1.6rem;
+      border: 1px solid rgba(245,240,232,0.3);
+      color: var(--paper);
+      letter-spacing: 0.04em;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-secondary:hover { border-color: var(--paper); }
+
+    .hero-right {
+      padding-left: 1rem;
+      display: flex; flex-direction: column; gap: 1.4rem;
+    }
+
+    .hero-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.4);
+      letter-spacing: 0.1em;
+      font-style: italic;
+      border-top: 1px solid rgba(245,240,232,0.15);
+      padding-top: 0.8rem;
+    }
+
+    .hero-badges {
+      display: flex; flex-wrap: wrap; gap: .55rem;
+      margin-top: .5rem;
+    }
+    .badge {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.07em;
+      padding: .28rem .7rem;
+      border: 1px solid rgba(245,240,232,0.2);
+      color: rgba(245,240,232,0.5);
+      font-style: italic;
+    }
+
+    /* cabecera de sección estilo periódico */
+    .section-masthead {
+      border-top: 4px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.5rem 0;
+      margin-bottom: 3rem;
+      display: flex; align-items: baseline; justify-content: space-between;
+    }
+    .section-masthead h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .section-masthead .section-dateline {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+
+    /* ── SOBRE MÍ ────────────────────────────────────── */
+    #sobre-mi {
+      padding: 5.5rem 5%;
+      background: var(--paper);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4.5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--ink-soft);
+      line-height: 2;
+      font-size: 0.97rem;
+      margin-bottom: 1.3rem;
+    }
+    .about-text p strong { color: var(--ink); font-weight: 600; }
+
+    .about-text p:first-of-type::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.2rem;
+      font-weight: 900;
+      float: left;
+      line-height: 0.78;
+      margin-right: 0.12em;
+      margin-top: 0.08em;
+      color: var(--ink);
+    }
+
+    .about-sidebar {
+      border-left: 2px solid var(--rule);
+      padding-left: 2rem;
+    }
+
+    .sidebar-block { margin-bottom: 2.2rem; }
+    .sidebar-block h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.9rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .skill-tag {
+      font-size: 0.78rem;
+      font-style: italic;
+      padding: .22rem .65rem;
+      background: var(--paper-dark);
+      border: 1px solid rgba(28,53,87,0.18);
+      color: var(--ink-soft);
+    }
+
+    /* ── PROYECTOS: tabs ─────────────────────────────── */
+    #proyectos {
+      padding: 5.5rem 5%;
+      background: var(--paper-dark);
+    }
+
+    .tabs {
+      display: flex; gap: 0;
+      border-bottom: 2px solid var(--rule);
+      margin-bottom: 2.5rem;
+    }
+    .tab-btn {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: .6rem 1.6rem;
+      background: transparent;
+      border: none; border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: var(--ink-muted);
+      letter-spacing: 0.02em;
+      transition: color .2s;
+      position: relative; bottom: -2px;
+    }
+    .tab-btn:hover { color: var(--ink); }
+    .tab-btn.active {
+      color: var(--ink);
+      border-bottom-color: var(--red);
+      background: var(--paper-dark);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── TARJETAS NOTICIAS ─────────────────────────── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 0;
+    }
+
+    .news-card {
+      background: var(--paper);
+      border: 1px solid rgba(28,53,87,0.15);
+      padding: 1.6rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex; flex-direction: column;
+      transition: background .2s;
+    }
+    .news-card:hover { background: #E8EFF7; }
+
+    .news-kicker {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .news-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0.7rem;
+    }
+    .news-card p {
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: var(--ink-muted);
+      flex: 1;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .news-meta {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      border-top: 1px solid rgba(28,53,87,0.12);
+      padding-top: 0.7rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .news-meta .read-more {
+      color: var(--red);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── TARJETAS PODCAST ──────────────────────────── */
+    .podcast-list {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .podcast-card {
+      background: var(--paper);
+      border: 1px solid rgba(28,53,87,0.15);
+      border-top: none;
+      padding: 1.4rem 1.8rem;
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 1.2rem;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      transition: background .2s;
+    }
+    .podcast-card:first-child { border-top: 1px solid rgba(28,53,87,0.15); }
+    .podcast-card:hover { background: #E8EFF7; }
+
+    .podcast-ep {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: rgba(28,53,87,0.15);
+      line-height: 1;
+      text-align: center;
+    }
+    .podcast-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .3rem;
+    }
+    .podcast-info p {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .podcast-duration {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      white-space: nowrap;
+      font-style: italic;
+    }
+
+    /* ── TARJETAS OTROS ────────────────────────────── */
+    .otros-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .otro-card {
+      background: var(--paper);
+      border: 1px solid rgba(28,53,87,0.15);
+      padding: 1.5rem 1.5rem 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex; flex-direction: column;
+      transition: background .2s;
+    }
+    .otro-card:hover { background: #E8EFF7; }
+    .otro-tipo {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--ink-muted);
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    .otro-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .5rem;
+      line-height: 1.3;
+    }
+    .otro-card p {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      font-style: italic;
+      flex: 1;
+    }
+    .otro-link {
+      font-size: 0.75rem;
+      color: var(--red);
+      font-weight: 600;
+      margin-top: .9rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── EXPERIENCIA / TIMELINE ───────────────────── */
+    #experiencia {
+      padding: 5.5rem 5%;
+      background: var(--paper);
+    }
+
+    .timeline { max-width: 700px; }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 110px 1px 1fr;
+      gap: 0 2rem;
+      padding-bottom: 2.8rem;
+    }
+
+    .timeline-date {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      text-align: right;
+      padding-top: .1rem;
+      font-style: italic;
+    }
+
+    .timeline-rail {
+      background: var(--rule);
+      position: relative;
+    }
+    .timeline-item:last-child .timeline-rail { background: transparent; }
+    .timeline-rail::before {
+      content: '';
+      position: absolute; top: 5px; left: 50%;
+      transform: translateX(-50%);
+      width: 7px; height: 7px;
+      background: var(--red);
+    }
+
+    .timeline-body { padding-left: .5rem; }
+    .timeline-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .2rem;
+    }
+    .timeline-company {
+      font-size: 0.82rem;
+      color: var(--red);
+      font-style: italic;
+      margin-bottom: .6rem;
+    }
+    .timeline-desc {
+      font-size: 0.87rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+    }
+
+    /* ── CONTACTO ─────────────────────────────────── */
+    #contacto {
+      padding: 5.5rem 5%;
+      background: var(--paper-dark);
+    }
+
+    .contact-wrapper { max-width: 600px; }
+    .contact-intro {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 1.2rem;
+      text-decoration: none;
+      padding: 1rem 1.4rem;
+      background: var(--paper);
+      border: 1px solid rgba(28,53,87,0.15);
+      border-top: none;
+      transition: background .2s;
+    }
+    .contact-link:first-child { border-top: 1px solid rgba(28,53,87,0.15); }
+    .contact-link:hover { background: #E8EFF7; }
+    .contact-link-icon {
+      width: 38px; height: 38px;
+      background: var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-link-icon svg { color: var(--paper); }
+    .contact-link-text strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem; font-weight: 700;
+      color: var(--ink);
+      display: block;
+    }
+    .contact-link-text span {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      padding: 1.2rem 5%;
+      background: var(--ink);
+      border-top: 3px double rgba(245,240,232,0.2);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+    }
+    footer p {
+      font-size: 0.75rem;
+      color: rgba(245,240,232,0.4);
+      font-style: italic;
+    }
+    .footer-legal {
+      display: flex; gap: 1.4rem; align-items: center;
+    }
+    .footer-legal a {
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.35);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color .2s;
+    }
+    .footer-legal a:hover { color: var(--paper); }
+
+    @media (max-width: 600px) {
+      footer { flex-direction: column; align-items: flex-start; gap: .7rem; }
+      .footer-legal { gap: 1rem; flex-wrap: wrap; }
+    }
+
+    /* ── MODALES LEGALES ──────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(10,20,40,0.82);
+      backdrop-filter: blur(4px);
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+    .modal-overlay.active { display: flex; align-items: flex-start; justify-content: center; }
+    .modal-box {
+      background: var(--paper);
+      border: 1px solid rgba(28,53,87,0.25);
+      max-width: 760px; width: 100%;
+      padding: 2.8rem 3rem;
+      position: relative;
+      margin: auto;
+    }
+    .modal-close {
+      position: absolute; top: 1.2rem; right: 1.4rem;
+      background: none; border: none; cursor: pointer;
+      color: var(--ink-muted); font-size: 1.4rem; line-height: 1;
+      transition: color .2s;
+    }
+    .modal-close:hover { color: var(--red); }
+    .modal-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .4rem;
+    }
+    .modal-box .modal-date {
+      font-size: 0.78rem; color: var(--ink-muted);
+      margin-bottom: 2rem; font-style: italic;
+    }
+    .modal-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.88rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--ink);
+      margin-top: 1.8rem; margin-bottom: .6rem;
+      border-bottom: 1px solid rgba(28,53,87,0.15);
+      padding-bottom: .3rem;
+    }
+    .modal-box p, .modal-box li {
+      font-size: 0.87rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+    }
+    .modal-box ul { padding-left: 1.4rem; margin-top: .4rem; }
+    .modal-box ul li { margin-bottom: .3rem; }
+    .modal-box a { color: var(--red); }
+    .modal-box code {
+      background: var(--paper-dark);
+      padding: .1em .35em;
+      font-size: 0.85em;
+    }
+
+    /* ── HAMBURGUESA ──────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: .4rem;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--paper); border-radius: 1px;
+      transition: transform .25s, opacity .25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 90px; left: 0; right: 0;
+      background: var(--ink);
+      border-bottom: 2px solid rgba(245,240,232,0.15);
+      padding: 1.5rem 5%;
+      flex-direction: column; gap: 1.2rem;
+      z-index: 99;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem; font-style: italic;
+      text-decoration: none; color: rgba(245,240,232,0.65);
+      transition: color .2s;
+    }
+    .nav-mobile-menu a:hover { color: var(--paper); }
+    .nav-mobile-menu .nav-cta {
+      font-size: 0.82rem; font-style: normal;
+      border: 1px solid rgba(245,240,232,0.3);
+      padding: .5rem 1rem;
+      align-self: flex-start; color: var(--paper);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-divider-v { display: none; }
+      .hero-right { padding-left: 0; margin-top: 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-sidebar { border-left: none; border-top: 2px solid var(--rule); padding-left: 0; padding-top: 2rem; }
+    }
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .timeline-item { grid-template-columns: 80px 1px 1fr; gap: 0 1.2rem; }
+      .podcast-card { grid-template-columns: 40px 1fr; }
+      .podcast-duration { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-top-bar">
+    <span>Periodismo · Reportaje · Podcast</span>
+    <a class="nav-cta" href="CV_Maria_Barranco.pdf" target="_blank">Descargar CV</a>
+  </div>
+  <div class="nav-main">
+    <a class="nav-logo" href="#inicio">
+      <img src="logo.png" alt="Logo Clara Barea">
+      <span>Clara Barea</span>
+    </a>
+    <ul>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#proyectos">Trabajos</a></li>
+      <li><a href="#experiencia">Trayectoria</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="#sobre-mi">Sobre mí</a>
+  <a href="#proyectos">Trabajos</a>
+  <a href="#experiencia">Trayectoria</a>
+  <a href="#contacto">Contacto</a>
+  <a class="nav-cta" href="CV_Maria_Barranco.pdf" target="_blank">Descargar CV</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+
+  <!-- Líneas decorativas fondo periódico -->
+  <svg class="hero-lines" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#F5F0E8" stroke-width="1" fill="none">
+      <line x1="0" y1="100" x2="1400" y2="100"/>
+      <line x1="0" y1="200" x2="1400" y2="200"/>
+      <line x1="0" y1="300" x2="1400" y2="300"/>
+      <line x1="0" y1="400" x2="1400" y2="400"/>
+      <line x1="0" y1="500" x2="1400" y2="500"/>
+      <line x1="0" y1="600" x2="1400" y2="600"/>
+      <line x1="0" y1="700" x2="1400" y2="700"/>
+      <line x1="233" y1="0" x2="233" y2="800"/>
+      <line x1="466" y1="0" x2="466" y2="800"/>
+      <line x1="700" y1="0" x2="700" y2="800"/>
+      <line x1="933" y1="0" x2="933" y2="800"/>
+      <line x1="1166" y1="0" x2="1166" y2="800"/>
+    </g>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="hero-kicker">Periodista · Recién graduada</p>
+      <h1>
+        La <em>historia</em><br>
+        importa.<br>
+        Yo la cuento.
+      </h1>
+      <div class="hero-rule"></div>
+      <p class="hero-desc">
+
+
+        Graduada en <strong>Periodismo</strong> con especial interés en los <strong> asuntos europeos</strong> y <strong> comunicación
+        institucional </strong>. Mi objetivo es desarrollar mi carrera profesional en el ámbito de las
+        instituciones europeas, contribuyendo desde una perspectiva periodística y comunicativa.
+
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#proyectos">Ver mis trabajos</a>
+        <a class="btn-secondary" href="#contacto">Contactar</a>
+      </div>
+    </div>
+
+    <div class="hero-divider-v"></div>
+
+    <div class="hero-right">
+      <p class="hero-dateline">España — 2026</p>
+      <div class="hero-badges">
+        <span class="badge">Podcast</span>
+        <span class="badge">Periodismo local</span>
+        <span class="badge">Redes sociales</span>
+        <span class="badge">Inglés B2</span>
+        <span class="badge">Edición de audio</span>
+        <span class="badge">Adobe Premiere</span>
+        <span class="badge">Redacción digital</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="section-masthead">
+    <h2>Sobre mí</h2>
+    <span class="section-dateline">Perfil profesional</span>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        <strong>Graduada en Periodismo</strong> con un especial interés en la <strong>comunicación institucional</strong> y en los asuntos relacionados con la <strong>Unión Europea</strong>. Durante mi formación académica, he desarrollado competencias en redacción, elaboración de guiones radiofónicos, locución y comunicación oral.
+      </p>
+      <p>
+        Mi experiencia de prácticas en el <strong>Gabinete de Comunicación de la sede del CSIC en Andalucía</strong> me permitió familiarizarme con la comunicación institucional, la creación de contenidos y la difusión de información científica y corporativa.
+      </p>
+      <p>
+        Profundicé en el funcionamiento de las instituciones comunitarias mediante mi Trabajo de Fin de Grado, centrado en las <strong>estrategias de comunicación de la Comisión Europea</strong> en redes sociales, y a través de una <strong>estancia Erasmus en Bélgica</strong>.
+      </p>
+      <p>
+        Con una clara vocación de especialización en cuestiones europeas, busco seguir desarrollando mi trayectoria en este ámbito aportando una <strong>mirada periodística</strong>, capacidad de análisis y un firme compromiso con la comunicación pública.
+      </p>
+    </div>
+
+    <div class="about-sidebar">
+      <div class="sidebar-block">
+        <h4>Especialidades</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Redacción y locución de guiones radiofónicos</span>
+          <span class="skill-tag">Redacción de piezas para prensa digital</span>
+          <span class="skill-tag">Entrevistas</span>
+          <span class="skill-tag">Planificación de estrategias de comunicación en redes sociales</span>
+          <span class="skill-tag">Fact-checking</span>
+        </div>
+      </div>
+      <div class="sidebar-block">
+        <h4>Herramientas</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Shorthand</span>
+          <span class="skill-tag">Adobe Premier</span>
+          <span class="skill-tag">Audacity</span>
+        </div>
+      </div>
+      <div class="sidebar-block">
+        <h4>Idiomas</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Español (nativo)</span>
+          <span class="skill-tag">Inglés (B2)</span>
+          <span class="skill-tag">Francés (B2)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS / TRABAJOS -->
+<section id="proyectos">
+  <div class="section-masthead">
+    <h2>Trabajos publicados</h2>
+    <span class="section-dateline">Portfolio</span>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" role="tab" aria-selected="true" data-tab="noticias">Noticias &amp; Reportajes</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="podcast">Podcast</button>
+    <!--<button class="tab-btn" role="tab" aria-selected="false" data-tab="otros">Otros</button> -->
+  </div>
+
+  <!-- TAB: NOTICIAS -->
+  <div class="tab-panel active" id="tab-noticias">
+    <div class="news-grid">
+
+      <a class="news-card" href="https://www.casadelaciencia.csic.es/es/blog/bicicleta-como-vehiculo-para-frenar-consecuencias-cambio-climatico" target="_blank" rel="noopener">
+        <span class="news-kicker">Divulgación</span>
+        <h3>La bicicleta como vehículo para frenar las consecuencias del cambio climático.</h3>
+        <p>Usar la bicicleta a diario reduce la huella de carbono un 84 %, posicionándose como la solución más rápida e inmediata frente al cambio climático ante la lenta implantación del coche eléctrico.</p>
+        <div class="news-meta">
+          <span>Marzo 2025 · CSIC</span>
+          <span class="read-more">Leer →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="https://delegacion.andalucia.csic.es/manuel-delgado-baquerizo-irnas-csic-mantener-la-biodiversidad-de-nuestros-suelos-es-clave-para-reducir-la-invasion-de-patogenos/" target="_blank" rel="noopener">
+        <span class="news-kicker">Entrevista</span>
+        <h3>Delgado Baquerizo (IRNAS-CSIC): «Mantener la biodiversidad del suelo es clave para frenar la invasión de patógenos»</h3>
+        <p>El investigador del CSIC advierte sobre cómo la riqueza biológica del subsuelo actúa como un escudo natural para proteger los ecosistemas y prevenir la propagación de enfermedades.</p>
+        <div class="news-meta">
+          <span>Marzo 2025 · CSIC</span>
+          <span class="read-more">Leer →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="https://casadelaciencia.newsletter.csic.es/email/view/683d92d442e13876243857" target="_blank" rel="noopener">
+        <span class="news-kicker"> Publicaciónes en Redes Sociales</span>
+        <h3>Boletín del museo Casa de la Ciencia</h3>
+        <p>Redacción y diseño de contenidos institucionales para el boletín digital del Museo Casa de la Ciencia, conectando la agenda del CSIC con sus campañas en redes sociales.</p>
+        <div class="news-meta">
+          <span>Mayo 2025 · CSIC</span>
+          <span class="read-more">Leer →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="https://idus.us.es/items/e96e9480-e5eb-4a3d-b9a3-edb61b76d476" target="_blank" rel="noopener">
+        <span class="news-kicker">Análisis (TFG)</span>
+        <h3>Análisis de la estrategia de comunicación de Ürsula von der Leyen y de la Comisión Europea en redes sociales. Agenda temática de la presidenta de la Comisión y de la Comisión Europea en Instagram y X durante el primer mes de la segunda comisión Von der Leyen</h3>
+        <p>Estudio sobre la comunicación digital de la Comisión Europea y su presidenta, que revela el predominio de los temas de agenda frente a los estratégicos, con un nivel de interacción equivalente entre la ciudadanía.</p>
+        <div class="news-meta">
+          <span>Junio 2025 · Mi trabajo final de grado </span>
+          <span class="read-more">Leer →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- TAB: PODCAST -->
+<div class="tab-panel" id="tab-podcast">
+  <div class="podcast-list">
+
+    <!-- Episodio 1 -->
+    <a class="podcast-card" href="https://open.spotify.com/episode/5xPfQy8YVGBoKXj3ujyypL?si=P2sCePDwQ36aA-1qQ2yWVg" target="_blank" rel="noopener">
+      <div class="podcast-ep">01</div>
+      <div class="podcast-info">
+        <h3>Feria del libro, Scorsese y primer día de clase</h3>
+        <p>Análisis del cine de Martin Scorsese, la Feria del Libro de Sevilla, el mundo de los programas de televisión y la experiencia del primer día de clase en una universidad extranjera.</p>
+      </div>
+      <div class="podcast-duration">34 min · Spotify</div>
+    </a>
+
+    <!-- Episodio 2 -->
+    <a class="podcast-card" href="https://open.spotify.com/episode/2uzAbz5kW9KLCVlMlT1giF" target="_blank" rel="noopener">
+      <div class="podcast-ep">02</div>
+      <div class="podcast-info">
+        <h3>¿Generación de cristal?</h3>
+        <p>Reportaje sobre la situación de los jóvenes estudiantes que residen fuera de su domicilio habitual en España y entrevista a la escritora Elsa Jenner.</p>
+      </div>
+      <div class="podcast-duration">48 min · Spotify</div>
+    </a>
+
+    <!-- Episodio 3 -->
+    <a class="podcast-card" href="https://open.spotify.com/episode/3OPam89t6UCroKDL6pvyhN?si=0Ug4gGDeQ6Shl9V8JmskzQ" target="_blank" rel="noopener">
+      <div class="podcast-ep">03</div>
+      <div class="podcast-info">
+        <h3>Cateto tú, que no’ntiendê l’andalûh</h3>
+        <p>Especial por el Día de Andalucía con un recorrido periodístico por la cultura andaluza, los recuerdos de la infancia y la divulgación de la cultura del meme.</p>
+      </div>
+      <div class="podcast-duration">52 min · Spotify</div>
+    </a>
+
+    <!-- Redirección al programa completo -->
+    <a class="podcast-card" href="https://open.spotify.com/episode/1NsZtalFaBFvBoe8djahOr?si=2Iv078NiTVCSszsjz0Z9bA" target="_blank" rel="noopener">
+      <div class="podcast-ep">→</div>
+      <div class="podcast-info">
+        <h3>Escucha el programa completo en Spotify</h3>
+        <p>Accede directamente al perfil del podcast Paraninfo para explorar la lista completa de episodios y producciones sonoras.</p>
+      </div>
+      <div class="podcast-duration">Ir al canal</div>
+    </a>
+
+  </div>
+</div>
+
+  <!-- TAB: OTROS -->
+  <div class="tab-panel" id="tab-otros">
+    <div class="otros-grid">
+
+      <a class="otro-card" href="#" target="_blank" rel="noopener">
+        <span class="otro-tipo">Vídeo</span>
+        <h3>Título del trabajo audiovisual</h3>
+        <p>Descripción: reportaje en vídeo, documental corto, pieza para redes sociales u otro formato audiovisual.</p>
+        <span class="otro-link">Ver vídeo →</span>
+      </a>
+
+      <a class="otro-card" href="#" target="_blank" rel="noopener">
+        <span class="otro-tipo">Fotografía</span>
+        <h3>Galería o fotoensayo periodístico</h3>
+        <p>Descripción del trabajo fotográfico: contexto, tema y medio donde se publicó.</p>
+        <span class="otro-link">Ver galería →</span>
+      </a>
+
+      <a class="otro-card" href="#" target="_blank" rel="noopener">
+        <span class="otro-tipo">Infografía</span>
+        <h3>Título del trabajo de periodismo de datos</h3>
+        <p>Visualización de datos, infografía interactiva u otro trabajo que combine periodismo y diseño.</p>
+        <span class="otro-link">Ver trabajo →</span>
+      </a>
+
+      <a class="otro-card" href="#" target="_blank" rel="noopener">
+        <span class="otro-tipo">Colaboración</span>
+        <h3>Colaboración con medio, ONG o proyecto</h3>
+        <p>Cualquier otro trabajo: colaboraciones, prácticas, proyectos universitarios o iniciativas propias.</p>
+        <span class="otro-link">Ver más →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div style="height:1px; background: rgba(28,53,87,0.15);"></div>
+
+<!-- EXPERIENCIA -->
+<section id="experiencia">
+  <div class="section-masthead">
+    <h2>Trayectoria</h2>
+    <span class="section-dateline">Historial</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <span class="timeline-date">2025</span>
+      <div class="timeline-rail"></div>
+      <div class="timeline-body">
+        <p class="timeline-role">Graduada en Periodismo</p>
+        <p class="timeline-company">Universidad de Sevilla</p>
+        <p class="timeline-desc">
+          Finalización del Grado en Periodismo con especial interés en comunicación institucional y asuntos europeos. Trabajo de Fin de Grado enfocado en el análisis de las estrategias de comunicación de la Comisión Europea en redes sociales.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-date">2025</span>
+      <div class="timeline-rail"></div>
+      <div class="timeline-body">
+        <p class="timeline-role">Prácticas en Comunicación Institucional</p>
+        <p class="timeline-company">Gabinete de Comunicación del CSIC en Andalucía · Sevilla</p>
+        <p class="timeline-desc">
+          Redacción y elaboración de contenidos para la web y la Casa de la Ciencia, difusión de notas de prensa institucionales, gestión de boletines digitales y apoyo en la divulgación científica del centro.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-date">2022 — 2024</span>
+      <div class="timeline-rail"></div>
+      <div class="timeline-body">
+        <p class="timeline-role">Colaboradora de Comunicación y Podcast</p>
+        <p class="timeline-company">Paraninfo · Universidad de Sevilla</p>
+        <p class="timeline-desc">
+          Redacción de guiones radiofónicos, locución, producción y edición de audio para programas y reportajes sonoros sobre cultura, sociedad y actualidad universitaria.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-date">2021 — 2025</span>
+      <div class="timeline-rail"></div>
+      <div class="timeline-body">
+        <p class="timeline-role">Grado en Periodismo</p>
+        <p class="timeline-company">Universidad de Sevilla</p>
+        <p class="timeline-desc">
+          Formación en redacción, periodismo sonoro, géneros informativos y comunicación corporativa. Incluye estancia internacional Erasmus en Bélgica para ampliar conocimientos sobre el funcionamiento de las instituciones de la Unión Europea.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div style="height:1px; background: rgba(28,53,87,0.15);"></div>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-masthead">
+    <h2>Contacto</h2>
+    <span class="section-dateline">¿Hablamos?</span>
+  </div>
+
+  <div class="contact-wrapper">
+    <p class="contact-intro">
+      Abierta a colaboraciones, primeras oportunidades en redacciones,
+      proyectos freelance y cualquier propuesta periodística que merezca
+      la pena contar.
+    </p>
+
+    <div class="contact-links">
+      <a class="contact-link" href="https://www.linkedin.com/in/clara-barea-prieto-b08b35247/" target="_blank" rel="noopener">
+        <div class="contact-link-icon">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.45 20.45h-3.554v-5.569c0-1.328-.025-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.354V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.368-1.85 3.6 0 4.265 2.368 4.265 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </div>
+        <div class="contact-link-text">
+          <strong>LinkedIn</strong>
+          <span>Clara Barea Prieto</span>
+        </div>
+      </a>
+
+      <a class="contact-link" href="mailto:clarabprieto@gmail.com" target="_blank" rel="noopener">
+        <div class="contact-link-icon">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </div>
+        <div class="contact-link-text">
+          <strong>Correo electrónico</strong>
+          <span>clarabprieto@gmail.com</span>
+        </div>
+      </a>
+<!--
+      <a class="contact-link" href="https://twitter.com/tu_usuario" target="_blank" rel="noopener">
+        <div class="contact-link-icon">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </div>
+        <div class="contact-link-text">
+          <strong>X / Twitter</strong>
+          <span>@tu_usuario</span>
+        </div>
+      </a>
+    -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Clara Barea — Periodista</p>
+  <div class="footer-legal">
+    <a href="#" data-modal="modal-aviso">Aviso Legal</a>
+    <a href="#" data-modal="modal-privacidad">Política de Privacidad</a>
+    <a href="#" data-modal="modal-cookies">Política de Cookies</a>
+  </div>
+</footer>
+
+<!-- MODAL: AVISO LEGAL -->
+<div class="modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-labelledby="aviso-titulo">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-aviso" aria-label="Cerrar">✕</button>
+    <h2 id="aviso-titulo">Aviso Legal</h2>
+    <p class="modal-date">Última actualización: julio de 2026</p>
+
+    <h3>1. Titular del sitio web</h3>
+    <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de que el titular del presente sitio web es:</p>
+    <ul>
+      <li><strong>Nombre:</strong> Clara Barea Prieto</li>
+      <li><strong>Contacto:</strong> disponible a través de LinkedIn o correo electrónico (véase sección Contacto)</li>
+      <li><strong>Domicilio:</strong> Jaén, España</li>
+    </ul>
+
+    <h3>2. Objeto y naturaleza del sitio</h3>
+    <p>El presente sitio web tiene carácter estrictamente personal y profesional, actuando como portfolio periodístico de presentación de trabajos, reportajes y producciones sonoras. No desarrolla actividad comercial ni económica directa, no ofrece servicios de pago, no recoge datos personales mediante formularios y no emplea sistemas de registro de usuarios.</p>
+
+    <h3>3. Infraestructura y servicios de terceros</h3>
+    <p>El sitio web está alojado en <strong>GitHub Pages</strong> (GitHub, Inc.) y se sirve a través de la red de distribución de contenidos (CDN) de <strong>Cloudflare, Inc.</strong>, que actúa como intermediario técnico para optimizar la entrega del contenido y proporcionar seguridad frente a amenazas en la red. Cloudflare puede registrar de forma temporal metadatos de las conexiones entrantes (dirección IP, fecha y hora, navegador) con fines estrictamente técnicos y de seguridad, conforme a su propia <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>. El titular del sitio no accede ni controla dichos registros.</p>
+
+    <h3>4. Propiedad intelectual</h3>
+    <p>Todos los contenidos del sitio web — textos, imágenes, gráficos, diseño visual, código fuente y demás elementos — son titularidad de María Barranco Jiménez o se utilizan bajo la licencia correspondiente, y están protegidos por la normativa vigente en materia de propiedad intelectual e industrial. Queda prohibida su reproducción, distribución, transformación o comunicación pública sin autorización expresa y por escrito del titular, conforme a la Ley de Propiedad Intelectual (Real Decreto Legislativo 1/1996) y demás normativa aplicable.</p>
+
+    <h3>5. Responsabilidad</h3>
+    <p>El titular no se hace responsable de los daños o perjuicios derivados del uso del sitio web, de la imposibilidad de acceso al mismo o de inexactitudes en la información publicada. Los enlaces a sitios externos (LinkedIn, medios de comunicación, plataformas de podcast) se ofrecen a título meramente informativo; el titular no controla ni responde por los contenidos, disponibilidad o políticas de privacidad de dichos sitios.</p>
+
+    <h3>6. Legislación aplicable y jurisdicción</h3>
+    <p>El presente Aviso Legal se rige por la legislación española, en particular por la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), la Ley de Propiedad Intelectual (Real Decreto Legislativo 1/1996) y demás normativa aplicable. Para la resolución de cualquier controversia derivada del acceso o uso de este sitio web, las partes se someten a la jurisdicción de los Juzgados y Tribunales de Jaén (España), salvo que la normativa aplicable establezca un fuero imperativo distinto en favor del usuario.</p>
+  </div>
+</div>
+
+<!-- MODAL: PRIVACIDAD -->
+<div class="modal-overlay" id="modal-privacidad" role="dialog" aria-modal="true" aria-labelledby="privacidad-titulo">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-privacidad" aria-label="Cerrar">✕</button>
+    <h2 id="privacidad-titulo">Política de Privacidad</h2>
+    <p class="modal-date">Última actualización: julio de 2026</p>
+
+    <h3>1. Responsable del tratamiento</h3>
+    <ul>
+      <li><strong>Identidad:</strong> Clara Barea Prieto</li>
+      <li><strong>Contacto:</strong> mediante LinkedIn o correo electrónico (véase sección Contacto)</li>
+    </ul>
+
+    <h3>2. Datos recogidos por el titular</h3>
+    <p>Este sitio web <strong>no recoge, almacena ni trata datos personales</strong> de sus visitantes de forma directa. No dispone de formularios de contacto, sistemas de registro, cuentas de usuario ni herramientas de analítica web propias.</p>
+    <p>No obstante, si el visitante inicia comunicación de forma voluntaria a través de LinkedIn o correo electrónico, los datos que facilite serán tratados exclusivamente para la gestión de consultas y comunicaciones profesionales, o la evaluación de propuestas de colaboración.</p>
+
+    <h3>3. Tratamiento de datos por servicios de terceros</h3>
+    <p>El funcionamiento técnico del sitio implica el uso de los siguientes servicios de terceros, cada uno con su propia política de privacidad independiente al titular:</p>
+    <ul>
+      <li><strong>GitHub Pages (GitHub, Inc.):</strong> alojamiento del sitio web. GitHub puede registrar metadatos de acceso con fines operativos y de seguridad. Consulta su <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Declaración de Privacidad</a>.</li>
+      <li><strong>Cloudflare, Inc.:</strong> CDN y seguridad de red. Puede registrar temporalmente metadatos de conexión (IP, navegador, fecha/hora) con fines de seguridad y rendimiento, sin que el titular del sitio acceda a dichos datos. Consulta su <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>.</li>
+      <li><strong>LinkedIn (LinkedIn Ireland Unlimited Company):</strong> canal de contacto profesional. Consulta su <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>.</li>
+    </ul>
+
+    <h3>4. Base jurídica del tratamiento</h3>
+    <p>El tratamiento de datos derivado de comunicaciones voluntarias se basa en el consentimiento del interesado (art. 6.1.a RGPD) y en el interés legítimo del responsable en gestionar relaciones profesionales (art. 6.1.f RGPD).</p>
+
+    <h3>5. Conservación de los datos</h3>
+    <p>Los datos se conservarán durante el tiempo strictly necesario para atender la consulta o el proceso de colaboración, y durante los plazos legales que resulten aplicables.</p>
+
+    <h3>6. Destinatarios y transferencias internacionales</h3>
+    <p>Los datos no se ceden a terceros, salvo obligación legal. LinkedIn Ireland Unlimited Company y su matriz LinkedIn, Inc. (EE. UU.) pueden efectuar transferencias de datos fuera del Espacio Económico Europeo, amparadas por las garantías adecuadas establecidas en el RGPD.</p>
+
+    <h3>7. Derechos de los interesados</h3>
+    <p>En los términos previstos en el RGPD y la LOPDGDD, el interesado puede ejercer los siguientes derechos mediante comunicación a través de LinkedIn o correo electrónico:</p>
+    <ul>
+      <li><strong>Acceso:</strong> conocer qué datos personales se tratan.</li>
+      <li><strong>Rectificación:</strong> corregir datos inexactos o incompletos.</li>
+      <li><strong>Supresión («derecho al olvido»):</strong> solicitar la eliminación de los datos cuando ya no sean necesarios.</li>
+      <li><strong>Limitación del tratamiento:</strong> solicitar la suspensión del tratamiento en determinados supuestos.</li>
+      <li><strong>Portabilidad:</strong> recibir los datos en formato estructurado y legible por máquina.</li>
+      <li><strong>Oposición:</strong> oponerse al tratamiento basado en interés legítimo.</li>
+    </ul>
+    <p>Asimismo, tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD): <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a></p>
+  </div>
+</div>
+
+<!-- MODAL: COOKIES -->
+<div class="modal-overlay" id="modal-cookies" role="dialog" aria-modal="true" aria-labelledby="cookies-titulo">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-cookies" aria-label="Cerrar">✕</button>
+    <h2 id="cookies-titulo">Política de Cookies</h2>
+    <p class="modal-date">Última actualización: julio de 2026</p>
+
+    <h3>1. ¿Qué son las cookies?</h3>
+    <p>Las cookies son pequeños archivos de texto que se almacenan en el dispositivo del usuario al acceder a páginas web, con el fin de recordar preferencias, mantener sesiones o recopilar estadísticas de uso.</p>
+
+    <h3>2. Uso de cookies en este sitio</h3>
+    <p>Este sitio web tiene carácter exclusivamente informativo y actúa como portfolio periodístico personal. <strong>El titular no utiliza cookies propias de ningún tipo</strong>: ni analíticas, ni publicitarias, ni de sesión, ni de seguimiento. Por este motivo no se muestra banner de acceptance de cookies, ya que no existe ninguna cookie propia que requiera consentimiento.</p>
+
+    <h3>3. Cookies técnicas de terceros</h3>
+    <p>El sitio se sirve a través de <strong>Cloudflare</strong>, que puede establecer las siguientes cookies de carácter estrictamente técnico y necesario:</p>
+    <ul>
+      <li><strong><code>__cf_bm</code>:</strong> gestión del tráfico y detección de bots automatizados. Duración: 30 minutos.</li>
+      <li><strong><code>cf_clearance</code>:</strong> registro de superación de desafíos de seguridad de Cloudflare. Duración: variable.</li>
+    </ul>
+    <p>Estas cookies son de carácter técnico necesario conforme al art. 22.2 de la LSSI-CE y no requieren consentimiento previo del usuario al no implicar tratamiento de datos con fines analíticos o publicitarios.</p>
+
+    <h3>4. Enlaces a terceros</h3>
+    <p>Este sitio contiene enlaces a plataformas externas como LinkedIn, Spotify, iVoox o medios de comunicación. Si accedes a ellas, ten en cuenta que disponen de sus propias políticas de cookies y privacidad, ajenas al titular de esta web.</p>
+
+    <h3>5. Cómo gestionar las cookies</h3>
+    <p>Puedes gestionar, bloquear o eliminar las cookies de terceros desde la configuración de tu navegador:</p>
+    <ul>
+      <li><strong>Google Chrome:</strong> Configuración &gt; Privacidad y seguridad &gt; Cookies y otros datos de sitios.</li>
+      <li><strong>Mozilla Firefox:</strong> Ajustes &gt; Privacidad &amp; Seguridad &gt; Cookies y datos del sitio.</li>
+      <li><strong>Safari:</strong> Preferencias &gt; Privacidad &gt; Gestionar datos de sitios web.</li>
+      <li><strong>Microsoft Edge:</strong> Configuración &gt; Cookies y permisos del sitio.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // ── MENÚ HAMBURGUESA
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // ── TABS
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+
+        tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById('tab-' + target).classList.add('active');
+      });
+    });
+
+    // ── MODALES LEGALES
+    const triggers = document.querySelectorAll('[data-modal]');
+    const closeButtons = document.querySelectorAll('[data-close]');
+    const overlays = document.querySelectorAll('.modal-overlay');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const modalId = trigger.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    const closeModal = (modal) => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = button.closest('.modal-overlay');
+        if (modal) closeModal(modal);
+      });
+    });
+
+    overlays.forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal(overlay);
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const activeModal = document.querySelector('.modal-overlay.active');
+        if (activeModal) closeModal(activeModal);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
