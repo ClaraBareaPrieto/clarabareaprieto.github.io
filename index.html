@@ -357,6 +357,7 @@
       display: flex; gap: 0;
       border-bottom: 2px solid var(--rule);
       margin-bottom: 2.5rem;
+      flex-wrap: wrap;
     }
     .tab-btn {
       font-family: 'Playfair Display', serif;
@@ -851,12 +852,9 @@
       </h1>
       <div class="hero-rule"></div>
       <p class="hero-desc">
-
-
         Graduada en <strong>Periodismo</strong> con especial interés en los <strong> asuntos europeos</strong> y <strong> comunicación
         institucional </strong>. Mi objetivo es desarrollar mi carrera profesional en el ámbito de las
         instituciones europeas, contribuyendo desde una perspectiva periodística y comunicativa.
-
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="#proyectos">Ver mis trabajos</a>
@@ -948,6 +946,7 @@
   <div class="tabs" role="tablist">
     <button class="tab-btn active" role="tab" aria-selected="true" data-tab="noticias">Noticias &amp; Reportajes</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="podcast">Podcast</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="voluntariado">Voluntariado</button>
     <!--<button class="tab-btn" role="tab" aria-selected="false" data-tab="otros">Otros</button> -->
   </div>
 
@@ -999,51 +998,78 @@
   </div>
 
   <!-- TAB: PODCAST -->
-<div class="tab-panel" id="tab-podcast">
-  <div class="podcast-list">
+  <div class="tab-panel" id="tab-podcast">
+    <div class="podcast-list">
 
-    <!-- Episodio 1 -->
-    <a class="podcast-card" href="https://open.spotify.com/episode/5xPfQy8YVGBoKXj3ujyypL?si=P2sCePDwQ36aA-1qQ2yWVg" target="_blank" rel="noopener">
-      <div class="podcast-ep">01</div>
-      <div class="podcast-info">
-        <h3>Feria del libro, Scorsese y primer día de clase</h3>
-        <p>Análisis del cine de Martin Scorsese, la Feria del Libro de Sevilla, el mundo de los programas de televisión y la experiencia del primer día de clase en una universidad extranjera.</p>
-      </div>
-      <div class="podcast-duration">34 min · Spotify</div>
-    </a>
+      <!-- Episodio 1 -->
+      <a class="podcast-card" href="https://open.spotify.com/episode/5xPfQy8YVGBoKXj3ujyypL?si=P2sCePDwQ36aA-1qQ2yWVg" target="_blank" rel="noopener">
+        <div class="podcast-ep">01</div>
+        <div class="podcast-info">
+          <h3>Feria del libro, Scorsese y primer día de clase</h3>
+          <p>Análisis del cine de Martin Scorsese, la Feria del Libro de Sevilla, el mundo de los programas de televisión y la experiencia del primer día de clase en una universidad extranjera.</p>
+        </div>
+        <div class="podcast-duration">34 min · Spotify</div>
+      </a>
 
-    <!-- Episodio 2 -->
-    <a class="podcast-card" href="https://open.spotify.com/episode/2uzAbz5kW9KLCVlMlT1giF" target="_blank" rel="noopener">
-      <div class="podcast-ep">02</div>
-      <div class="podcast-info">
-        <h3>¿Generación de cristal?</h3>
-        <p>Reportaje sobre la situación de los jóvenes estudiantes que residen fuera de su domicilio habitual en España y entrevista a la escritora Elsa Jenner.</p>
-      </div>
-      <div class="podcast-duration">48 min · Spotify</div>
-    </a>
+      <!-- Episodio 2 -->
+      <a class="podcast-card" href="https://open.spotify.com/episode/2uzAbz5kW9KLCVlMlT1giF" target="_blank" rel="noopener">
+        <div class="podcast-ep">2</div>
+        <div class="podcast-info">
+          <h3>¿Generación de cristal?</h3>
+          <p>Reportaje sobre la situación de los jóvenes estudiantes que residen fuera de su domicilio habitual en España y entrevista a la escritora Elsa Jenner.</p>
+        </div>
+        <div class="podcast-duration">48 min · Spotify</div>
+      </a>
 
-    <!-- Episodio 3 -->
-    <a class="podcast-card" href="https://open.spotify.com/episode/3OPam89t6UCroKDL6pvyhN?si=0Ug4gGDeQ6Shl9V8JmskzQ" target="_blank" rel="noopener">
-      <div class="podcast-ep">03</div>
-      <div class="podcast-info">
-        <h3>Cateto tú, que no’ntiendê l’andalûh</h3>
-        <p>Especial por el Día de Andalucía con un recorrido periodístico por la cultura andaluza, los recuerdos de la infancia y la divulgación de la cultura del meme.</p>
-      </div>
-      <div class="podcast-duration">52 min · Spotify</div>
-    </a>
+      <!-- Episodio 3 -->
+      <a class="podcast-card" href="https://open.spotify.com/episode/3OPam89t6UCroKDL6pvyhN?si=0Ug4gGDeQ6Shl9V8JmskzQ" target="_blank" rel="noopener">
+        <div class="podcast-ep">03</div>
+        <div class="podcast-info">
+          <h3>Cateto tú, que no’ntiendê l’andalûh</h3>
+          <p>Especial por el Día de Andalucía con un recorrido periodístico por la cultura andaluza, los recuerdos de la infancia y la divulgación de la cultura del meme.</p>
+        </div>
+        <div class="podcast-duration">52 min · Spotify</div>
+      </a>
 
-    <!-- Redirección al programa completo -->
-    <a class="podcast-card" href="https://open.spotify.com/episode/1NsZtalFaBFvBoe8djahOr?si=2Iv078NiTVCSszsjz0Z9bA" target="_blank" rel="noopener">
-      <div class="podcast-ep">→</div>
-      <div class="podcast-info">
-        <h3>Escucha el programa completo en Spotify</h3>
-        <p>Accede directamente al perfil del podcast Paraninfo para explorar la lista completa de episodios y producciones sonoras.</p>
-      </div>
-      <div class="podcast-duration">Ir al canal</div>
-    </a>
+      <!-- Redirección al programa completo -->
+      <a class="podcast-card" href="https://open.spotify.com/episode/1NsZtalFaBFvBoe8djahOr?si=2Iv078NiTVCSszsjz0Z9bA" target="_blank" rel="noopener">
+        <div class="podcast-ep">→</div>
+        <div class="podcast-info">
+          <h3>Escucha el programa completo en Spotify</h3>
+          <p>Accede directamente al perfil del podcast Paraninfo para explorar la lista completa de episodios y producciones sonoras.</p>
+        </div>
+        <div class="podcast-duration">Ir al canal</div>
+      </a>
 
+    </div>
   </div>
-</div>
+
+  <!-- TAB: VOLUNTARIADO -->
+  <div class="tab-panel" id="tab-voluntariado">
+    <div class="news-grid">
+
+      <a class="news-card" href="https://www.ujaen.es/servicios/ucc/eventos/la-noche-europea-de-ls-investigadors-2026" target="_blank" rel="noopener">
+        <span class="news-kicker">Voluntariado</span>
+        <h3>Participación en la Noche Europea de los Investigadores </h3>
+        <p></p>
+        <div class="news-meta">
+          <span>Septiembre 2025 · UJA</span>
+          <span class="read-more">Saber más →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="https://www.bancodealimentosjaen.org/" target="_blank" rel="noopener">
+        <span class="news-kicker">Voluntariado</span>
+        <h3>Recogida de alimentos para el Banco de Alimentos de Jaén</h3>
+        <p></p>
+        <div class="news-meta">
+          <span> 2025 </span>
+          <span class="read-more">Saber más →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
 
   <!-- TAB: OTROS -->
   <div class="tab-panel" id="tab-otros">
@@ -1185,19 +1211,6 @@
           <span>clarabprieto@gmail.com</span>
         </div>
       </a>
-<!--
-      <a class="contact-link" href="https://twitter.com/tu_usuario" target="_blank" rel="noopener">
-        <div class="contact-link-icon">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-        </div>
-        <div class="contact-link-text">
-          <strong>X / Twitter</strong>
-          <span>@tu_usuario</span>
-        </div>
-      </a>
-    -->
     </div>
   </div>
 </section>
@@ -1228,7 +1241,7 @@
     </ul>
 
     <h3>2. Objeto y naturaleza del sitio</h3>
-    <p>El presente sitio web tiene carácter estrictamente personal y profesional, actuando como portfolio periodístico de presentación de trabajos, reportajes y producciones sonoras. No desarrolla actividad comercial ni económica directa, no ofrece servicios de pago, no recoge datos personales mediante formularios y no emplea sistemas de registro de usuarios.</p>
+    <p>El presente sitio web tiene carácter strictly personal y profesional, actuando como portfolio periodístico de presentación de trabajos, reportajes y producciones sonoras. No desarrolla actividad comercial ni económica directa, no ofrece servicios de pago, no recoge datos personales mediante formularios y no emplea sistemas de registro de usuarios.</p>
 
     <h3>3. Infraestructura y servicios de terceros</h3>
     <p>El sitio web está alojado en <strong>GitHub Pages</strong> (GitHub, Inc.) y se sirve a través de la red de distribución de contenidos (CDN) de <strong>Cloudflare, Inc.</strong>, que actúa como intermediario técnico para optimizar la entrega del contenido y proporcionar seguridad frente a amenazas en la red. Cloudflare puede registrar de forma temporal metadatos de las conexiones entrantes (dirección IP, fecha y hora, navegador) con fines estrictamente técnicos y de seguridad, conforme a su propia <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>. El titular del sitio no accede ni controla dichos registros.</p>
@@ -1303,7 +1316,7 @@
     <p>Las cookies son pequeños archivos de texto que se almacenan en el dispositivo del usuario al acceder a páginas web, con el fin de recordar preferencias, mantener sesiones o recopilar estadísticas de uso.</p>
 
     <h3>2. Uso de cookies en este sitio</h3>
-    <p>Este sitio web tiene carácter exclusivamente informativo y actúa como portfolio periodístico personal. <strong>El titular no utiliza cookies propias de ningún tipo</strong>: ni analíticas, ni publicitarias, ni de sesión, ni de seguimiento. Por este motivo no se muestra banner de acceptance de cookies, ya que no existe ninguna cookie propia que requiera consentimiento.</p>
+    <p>Este sitio web tiene carácter exclusivamente informativo y actúa como portfolio periodístico personal. <strong>El titular no utiliza cookies propias de ningún tipo</strong>: ni analíticas, ni publicitarias, ni de sesión, ni de seguimiento. Por este motivo no se muestra banner de aceptación de cookies, ya que no existe ninguna cookie propia que requiera consentimiento.</p>
 
     <h3>3. Cookies técnicas de terceros</h3>
     <p>El sitio se sirve a través de <strong>Cloudflare</strong>, que puede establecer las siguientes cookies de carácter estrictamente técnico y necesario:</p>
